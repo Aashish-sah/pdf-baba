@@ -29,7 +29,7 @@ RUN pip3 install --no-cache-dir -r pdf-engine/requirements.txt --break-system-pa
 # Copy source code
 COPY api ./api
 COPY pdf-engine ./pdf-engine
-COPY shared ./shared
+
 
 # Build API (Compile TypeScript)
 WORKDIR /app/api
