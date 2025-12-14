@@ -312,7 +312,7 @@ const ImageToPdfTool = () => {
                                 onClick={() => addBlankPage()}
                                 className="w-full mt-4 py-3 border-2 border-dashed border-gray-200 rounded-xl text-gray-500 text-sm font-medium hover:border-red-200 hover:text-red-600 hover:bg-red-50 transition-colors flex items-center justify-center gap-2"
                             >
-                                <FilePlus size={16} /> Add Blank Page
+                                <Plus size={16} /> Add Blank Page
                             </button>
                         </div>
                     </div>
