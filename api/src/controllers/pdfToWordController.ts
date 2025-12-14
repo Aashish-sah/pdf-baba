@@ -42,7 +42,7 @@ export const convertPdfToWord = async (req: Request, res: Response) => {
 
         // Command
         const pythonScript = path.join(__dirname, '../../../pdf-engine/main.py');
-        const command = `python "${pythonScript}" pdf-to-word --inputs "${file.path}" --output "${outputPath}" --params "${params.replace(/"/g, '\\"')}"`;
+        const command = `python3 "${pythonScript}" pdf-to-word --inputs "${file.path}" --output "${outputPath}" --params "${params.replace(/"/g, '\\"')}"`;
 
         exec(command, (error, stdout, stderr) => {
             if (error) {

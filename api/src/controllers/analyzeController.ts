@@ -12,7 +12,7 @@ export const analyzePDF = async (req: Request, res: Response) => {
         const inputPath = files[0].path;
 
         const pythonScript = path.join(process.cwd(), '../pdf-engine/main.py');
-        const command = `python "${pythonScript}" analyze --inputs "${inputPath}"`;
+        const command = `python3 "${pythonScript}" analyze --inputs "${inputPath}"`;
 
         exec(command, (error, stdout, stderr) => {
             if (error) {

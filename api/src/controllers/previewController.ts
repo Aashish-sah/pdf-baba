@@ -15,7 +15,7 @@ export const generatePreview = async (req: Request, res: Response) => {
         }
 
         const enginePath = path.resolve(process.cwd(), '../pdf-engine/main.py');
-        const command = `python "${enginePath}" preview --inputs "${file.path}"`;
+        const command = `python3 "${enginePath}" preview --inputs "${file.path}"`;
 
         const { stdout } = await execAsync(command);
         const result = JSON.parse(stdout);

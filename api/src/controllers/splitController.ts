@@ -34,7 +34,7 @@ export const splitPDF = async (req: Request, res: Response) => {
 
         // Escape double quotes for Windows command line: " becomes \"
         const jsonParams = JSON.stringify(properties).replace(/"/g, '\\"');
-        const command = `python "${pythonScript}" split --inputs "${inputPath}" --output "${outputPath}" --params "${jsonParams}"`;
+        const command = `python3 "${pythonScript}" split --inputs "${inputPath}" --output "${outputPath}" --params "${jsonParams}"`;
 
         exec(command, (error, stdout, stderr) => {
             if (error) {

@@ -43,7 +43,7 @@ export const convertPdfToImage = async (req: Request, res: Response) => {
         // Command to run Python script via main.py
         // We use the same virtual env or python path as other tools
         const pythonScript = path.join(__dirname, '../../../pdf-engine/main.py');
-        const command = `python "${pythonScript}" pdf-to-image --inputs "${file.path}" --output "${tempOutputDir}" --params "${params.replace(/"/g, '\\"')}"`;
+        const command = `python3 "${pythonScript}" pdf-to-image --inputs "${file.path}" --output "${tempOutputDir}" --params "${params.replace(/"/g, '\\"')}"`;
 
         exec(command, async (error, stdout, stderr) => {
             if (error) {

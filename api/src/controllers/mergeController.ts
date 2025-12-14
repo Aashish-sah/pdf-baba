@@ -50,7 +50,7 @@ export const mergePDFs = async (req: Request, res: Response) => {
 
         // Construct command
         const inputFiles = files.map(f => `"${f.path}"`).join(' ');
-        const command = `python "${enginePath}" merge --inputs ${inputFiles} --output "${outputPath}" --params "${paramsString}"`;
+        const command = `python3 "${enginePath}" merge --inputs ${inputFiles} --output "${outputPath}" --params "${paramsString}"`;
 
         console.log('Merge Command:', command); // Debug log
 

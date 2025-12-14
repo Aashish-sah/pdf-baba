@@ -40,7 +40,7 @@ export const imageToPdf = async (req: Request, res: Response) => {
         // Escape JSON
         const jsonParams = JSON.stringify(properties).replace(/"/g, '\\"');
 
-        const command = `python "${pythonScript}" image-to-pdf --inputs ${inputsArgs} --output "${outputPath}" --params "${jsonParams}"`;
+        const command = `python3 "${pythonScript}" image-to-pdf --inputs ${inputsArgs} --output "${outputPath}" --params "${jsonParams}"`;
 
         exec(command, { maxBuffer: 1024 * 1024 * 10 }, (error, stdout, stderr) => {
             if (error) {
