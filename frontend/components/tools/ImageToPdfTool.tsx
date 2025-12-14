@@ -249,7 +249,7 @@ const ImageToPdfTool = () => {
                             <span className="font-semibold text-gray-700 whitespace-nowrap">{pages.length} Pages</span>
                             <div {...getRootProps()} className="cursor-pointer text-red-600 hover:text-red-700 text-sm font-medium flex items-center gap-1 whitespace-nowrap">
                                 <input {...getInputProps()} />
-                                <FilePlus size={16} /> Add Images
+                                <Plus size={16} /> Add Images
                             </div>
                         </div>
 
