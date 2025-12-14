@@ -1,4 +1,6 @@
 
+import { Plus } from "lucide-react";
+
 export default function FAQPage() {
     const faqs = [
         {
