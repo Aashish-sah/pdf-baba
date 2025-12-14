@@ -43,7 +43,7 @@ export const compressPDF = async (req: Request, res: Response) => {
 
         console.log('Spawning python process:', 'python', processArgs.join(' '));
 
-        const pythonProcess = spawn('python', processArgs);
+        const pythonProcess = spawn('python3', processArgs);
 
         let dataString = '';
         let errorString = '';
