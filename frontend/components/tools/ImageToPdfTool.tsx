@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
-import { Upload, X, FilePlus, ArrowUp, ArrowDown, Image as ImageIcon, Settings, Move, Trash2, Download } from 'lucide-react';
+import { Upload, X, Plus, ArrowUp, ArrowDown, Image as ImageIcon, Settings, Move, Trash2, Download } from 'lucide-react';
 import { RelatedTools } from './RelatedTools';
 import { cn } from '@/lib/utils';
 import { API_BASE_URL } from '@/lib/api';
