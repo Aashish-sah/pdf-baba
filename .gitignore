@@ -1,0 +1,32 @@
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+.next
+dist
+build
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+venv
+.venv
+env
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# App Specific uploads/outputs
+uploads/*
+processed/*
+!uploads/.gitkeep
+!processed/.gitkeep
+debug_log.txt
