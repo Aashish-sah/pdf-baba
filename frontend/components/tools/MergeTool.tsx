@@ -53,7 +53,7 @@ export function MergeTool({ tool }: MergeToolProps) {
             const formData = new FormData();
             formData.append('file', file);
 
-            const response = await fetch('http://localhost:4000/api/tools/preview', {
+            const response = await fetch(`${API_BASE_URL}/api/tools/preview`, {
                 method: 'POST',
                 body: formData
             });
