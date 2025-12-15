@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { TOOLS_CONFIG, ToolId } from "@/lib/tools"
 import { API_BASE_URL } from "@/lib/api"
 import { ToolIcon } from "@/components/ui/ToolIcon"
-import { Check, Shield, Zap, FileText, Trash2, Download, Loader2 } from "lucide-react"
+import { Check, Zap, FileText, Trash2, Download } from "lucide-react"
 import { notFound, useParams } from "next/navigation"
 import { FileUploader } from "@/components/tools/FileUploader"
 import { MergeTool } from "@/components/tools/MergeTool"
@@ -12,16 +12,11 @@ import SplitTool from "@/components/tools/SplitTool"
 import ImageToPdfTool from "@/components/tools/ImageToPdfTool"
 import { PdfToImageTool } from "@/components/tools/PdfToImageTool"
 import { PdfToWordTool } from "@/components/tools/PdfToWordTool"
+import { ProtectPdfTool } from "@/components/tools/ProtectPdfTool"
 
 export default function ToolPage() {
     const params = useParams()
     const toolId = params?.tool as string
-
-    if (!toolId || !TOOLS_CONFIG[toolId as ToolId]) {
-        return notFound();
-    }
-
-    const tool = TOOLS_CONFIG[toolId as ToolId];
 
     // State
     const [files, setFiles] = useState<File[]>([])
@@ -36,6 +31,7 @@ export default function ToolPage() {
     const [downloadUrl, setDownloadUrl] = useState<string | null>(null)
     const [downloadName, setDownloadName] = useState<string>("")
     const [stats, setStats] = useState<{ original: string, compressed: string, saved: string } | null>(null)
+
 
     const handleFilesSelected = (newFiles: File[]) => {
         setFiles(newFiles)
@@ -146,6 +142,13 @@ export default function ToolPage() {
         setDownloadUrl(null)
     }
 
+    if (!toolId || !TOOLS_CONFIG[toolId as ToolId]) {
+        return notFound();
+    }
+
+    const tool = TOOLS_CONFIG[toolId as ToolId];
+
+
     return (
         <div className="bg-white min-h-screen">
             {/* Header */}
@@ -178,6 +181,8 @@ export default function ToolPage() {
                                 <PdfToImageTool />
                             ) : (toolId === 'pdf-to-word') ? (
                                 <PdfToWordTool />
+                            ) : (toolId === 'protect-pdf') ? (
+                                <ProtectPdfTool />
                             ) : (
                                 <>
                                     {/* STANDARD TOOL UI (COMPRESS, ETC) */}

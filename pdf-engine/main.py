@@ -335,6 +335,48 @@ def main():
                  print(json.dumps({"status": "error", "message": result.get('error', "Conversion failed")}))
             return
 
+        # PROTECT TOOL
+        elif args.tool == 'protect':
+            if not args.inputs or not args.output:
+                raise Exception("Protect requires --inputs and --output")
+            
+            from tools.security.protector import PDFProtector
+            
+            properties = {}
+            if args.params:
+                try:
+                    properties = json.loads(args.params)
+                except:
+                    pass
+            
+            user_password = properties.get('user_password')
+            if not user_password:
+                raise Exception("User password is required")
+                
+            owner_password = properties.get('owner_password')
+            permissions = properties.get('permissions')
+            encryption = properties.get('encryption', 'AES-256')
+            
+            protector = PDFProtector(debug=args.debug)
+            result = protector.protect(
+                input_path=args.inputs[0],
+                output_path=args.output,
+                user_password=user_password,
+                owner_password=owner_password,
+                permissions=permissions,
+                encryption_level=encryption
+            )
+            
+            if result['success']:
+                 print(json.dumps({
+                    "status": "success", 
+                    "tool": "protect",
+                    "output": args.output
+                 }))
+            else:
+                 print(json.dumps({"status": "error", "message": result.get('error', "Protection failed")}))
+            return
+
         print(json.dumps({"status": "error", "message": f"Tool {args.tool} not implemented"}))
 
     except Exception as e:

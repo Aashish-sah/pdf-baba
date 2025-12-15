@@ -8,6 +8,7 @@ import { imageToPdf } from '../controllers/imageToPdfController';
 import { generatePreview } from '../controllers/previewController';
 import { convertPdfToImage } from '../controllers/pdfToImageController';
 import { convertPdfToWord } from '../controllers/pdfToWordController';
+import { protectPDF } from '../controllers/securityController';
 import path from 'path';
 import fs from 'fs';
 
@@ -35,6 +36,7 @@ router.post('/analyze', upload.array('files'), analyzePDF);
 router.post('/image-to-pdf', upload.array('files'), imageToPdf);
 router.post('/pdf-to-image', upload.array('files'), convertPdfToImage);
 router.post('/pdf-to-word', upload.array('files'), convertPdfToWord);
+router.post('/protect', upload.array('files'), protectPDF);
 router.post('/preview', upload.single('file'), generatePreview);
 
 

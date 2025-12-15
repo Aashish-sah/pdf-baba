@@ -120,13 +120,7 @@ export const TOOL_CATEGORIES = [
                 icon: "/images/icons/unlock.svg",
                 category: "Security"
             },
-            {
-                title: "Sign PDF",
-                description: "Sign yourself or request electronic signatures from others.",
-                href: "/tools/pdf-security/sign-pdf",
-                icon: "/images/icons/sign.svg",
-                category: "Security"
-            }
+
         ]
     }
 ];

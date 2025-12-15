@@ -243,19 +243,7 @@ export const TOOLS_CONFIG: Record<string, ToolConfig> = {
         color: 'bg-slate-500',
         icon: 'Unlock'
     },
-    'sign-pdf': {
-        title: 'Sign PDF',
-        description: 'Sign yourself or request electronic signatures from others.',
-        category: 'secure',
-        accept: { "application/pdf": [".pdf"] },
-        multiple: false,
-        maxFiles: 1,
-        buttonLabel: 'Sign PDF',
-        processVerb: 'Signing',
-        href: '/sign-pdf',
-        color: 'bg-slate-600',
-        icon: 'PenTool'
-    },
+
 };
 
 export type ToolId = keyof typeof TOOLS_CONFIG;
